@@ -340,7 +340,7 @@ else:
     if sys.platform == "linux" and use_hugepage is None:
         use_hugepage = 1
         kernel_version = os.uname().release.split(".")[:2]
-        kernel_version = tuple(int(v) for v in kernel_version)
+        kernel_version = tuple(int(v[0:2]) for v in kernel_version)
         if kernel_version < (4, 6):
             use_hugepage = 0
     elif use_hugepage is None:
